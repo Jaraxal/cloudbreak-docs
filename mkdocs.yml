@@ -1,4 +1,4 @@
-site_name: Cloudbreak 1.3.0
+site_name: Cloudbreak 1.6.0
 site_url: http://sequenceiq.com/cloudbreak-docs
 repo_url: https://github.com/sequenceiq/cloudbreak-docs
 theme: mkdocs
@@ -26,11 +26,11 @@ pages:
         - Auto-Scaling : periscope.md
         - Recipes: recipes.md
         - Blueprints : blueprints.md
-        - Platforms : topologies.md
-        - Cloud Images: images.md
-        - Kerberos: kerberos.md
-        - Ambari Database: database.md
-        - Mesos: mesos.md
+        - Cloud Images (TP): images.md
+        - Ambari Database (TP): database.md
+        - Platforms (TP): topologies.md
+        - Kerberos (TP): kerberos.md
+        - Mesos (TP): mesos.md
         - SPI: spi.md
         - Basic Operations : operations.md
         - Advanced Configuration : configuration.md
