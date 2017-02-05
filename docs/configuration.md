@@ -67,9 +67,31 @@ If your SMTP server uses SMTPS, you must set the protocol in your `Profile` to `
 ```
 export CLOUDBREAK_SMTP_TYPE=smtps
 ```
-#### Certificates 
+
+### Certificates
+
+#### Trusted Certificates 
 
 If the certificate used by the SMTP server is self-signed or the Java's default trust store doesn't contain it, you can add it to the trust store by copying it to `certs/trusted` inside the Cloudbreak Deployer directory, and start (or restart) the Cloudbreak container (with `cbd start`). On startup, the Cloudbreak container  automatically imports the certificates in that directory to its trust store.
+
+#### Cloudbreak Certificate
+
+If you would like to replace Cloudbreak's self-signed certificate with your own certificate then copy your certificate and the related private key under cloudbreak-deployment directory:
+```
+certs/traefik/mydomain.com.crt
+certs/traefik/mydomain.com.key
+```
+
+If the traefik directory does not exsist then create it. After you have coped the cert and private key file, then add the following variable into the Profile file of cbd and restart cbd.
+
+```
+export CBD_TRAEFIK_TLS="/certs/traefik/mydomain.com.crt,/certs/traefik/mydomain.com.key"
+```
+
+As a best practice we recommend to replace `mydomain.com` with the actual domain what you want to use, but make sure that the actual file names and the values in `CBD_TRAEFIK_TLS` are identical.  
+
+*Note: password protected private key files can't be used by Cloudbreak*  
+
 
 ###Access from Custom Domains
 

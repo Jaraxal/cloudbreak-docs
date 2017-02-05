@@ -35,7 +35,7 @@ Explanation of the parameters:
 - `Subnet Identifier` This is the ID of an existing subnet on OpenStack where you would like to launch the cluster. (Must be provided for **Use an existing subnet in an existing network**)
 
 >**IMPORTANT** Please make sure the defined subnet here doesn't overlap with any of your already deployed subnet in the
- network, because of the validation only happens after the cluster creation starts.
+ network, because the validation only happens after the cluster creation starts.
 
 >In case of existing subnet make sure you have enough room within your network space for the new instances. The
 provided subnet CIDR will be ignored, but a proper CIDR range will be used.

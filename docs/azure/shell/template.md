@@ -7,7 +7,7 @@ infrastructure:
 - networks
 - templates
 
-When you create one of the above resource, **Cloudbreak does not make any requests to Azure. Resources are only created
+When you create one of the above resources, **Cloudbreak does not make any requests to Azure. Resources are only created
  on Azure after the `cluster create` has applied.** These templates are saved to Cloudbreak's database and can be 
  reused with multiple clusters to describe the infrastructure.
 

@@ -26,8 +26,8 @@ which contains only 1 service: HDFS_CLIENT and select this host group for the Am
 it is not advised to select a 'slave' host group for this purpose.
 
 ```
-instancegroup configure --instanceGroup master --nodecount 1 --templateName minviable-aws --ambariServer true
-instancegroup configure --instanceGroup slave_1 --nodecount 1 --templateName minviable-aws --ambariServer false
+instancegroup configure --instanceGroup master --nodecount 1 --templateName minviable-aws --securityGroupName all-services-port --ambariServer true
+instancegroup configure --instanceGroup slave_1 --nodecount 1 --templateName minviable-aws --securityGroupName all-services-port --ambariServer false
 ```
 Other available option:
 
@@ -40,12 +40,6 @@ Select one of your previously created network which fits your needs or a default
 network select --name default-gcp-network
 ```
 
-#### Select Security Group
-
-Select one of your previously created security which fits your needs or a default one:
-```
-securitygroup select --name all-services-port
-```
 #### Create Stack / Create Cloud Infrastructure
 
 Stack means the running cloud infrastructure that is created based on the instance groups configured earlier 
@@ -53,7 +47,7 @@ Stack means the running cloud infrastructure that is created based on the instan
 use your templates and by using GCP will launch your cloud stack. Use the following command to create a 
 stack to be used with your Hadoop cluster:
 ```
-stack create --name mygcpstack --region us-central1
+stack create --GCP --name mygcpstack --region us-central1
 ```
 The infrastructure is created asynchronously, the state of the stack can be checked with the stack `show command`. If 
 it reports AVAILABLE, it means that the virtual machines and the corresponding infrastructure is running at the cloud provider.

@@ -29,7 +29,7 @@ to create clusters, but cannot delete it.
 `--subnetId` if you have an existing subnet in the network then you can specify the id here and the cluster will use that existing subnet.
 
 >**IMPORTANT:** Make sure the defined subnet here doesn't overlap with any of your 
-already deployed subnet in the network, because of the validation only happens after the cluster creation starts.
+already deployed subnet in the network, because the validation only happens after the cluster creation starts.
    
 >In case of existing subnet make sure you have enough room within your network space for the new instances. The 
 provided subnet CIDR will be ignored, but a proper CIDR range will be used.

@@ -7,7 +7,7 @@ clusters' infrastructure:
 - networks
 - security groups
 
-When you create one of the above resource, **Cloudbreak does not make any requests to OpenStack. Resources are only 
+When you create one of the above resources, **Cloudbreak does not make any requests to OpenStack. Resources are only
 created on OpenStack after the `create cluster` button has pushed.** These templates are saved to Cloudbreak's 
 database and can be reused with multiple clusters to describe the infrastructure.
 

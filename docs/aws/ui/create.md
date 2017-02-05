@@ -19,7 +19,6 @@ Here is a **basic flow for cluster creation on Cloudbreak Web UI**:
 
 `Setup Network and Security` tab
 
- - Select one of the networks
  - Select one of the security groups
  - Click on the `Choose Blueprint` button
 >If `Enable security` is checked as well, Cloudbreak will install Key Distribution Center (KDC) and the cluster will 
@@ -30,6 +29,7 @@ be Kerberized. See more about it in the [Kerberos](kerberos.md) section of this 
  - Select one of the blueprint
  - After you've selected a `Blueprint`, you should be able to configure:
     - the templates
+    - the securitygroups
     - the number of nodes for all of the host groups in the blueprint
  - You need to select where you want to install the Ambari server to. Only 1 host group can be selected.
    If you want to install the Ambari server to a separate node, you need to extend your blueprint with a new host group
@@ -64,22 +64,24 @@ There are some advanced features when deploying a new cluster, these are the fol
 
 `Use dedicated instances` You can use [dedicated instances](https://aws.amazon.com/ec2/purchasing-options/dedicated-instances/) on EC2
 
-`Minimum cluster size` The provisioning strategy in case of the cloud provider cannot allocate all the requested nodes.
+`Minimum cluster size` The provisioning strategy in case the cloud provider cannot allocate all the requested nodes.
 
 `Validate blueprint` This is selected by default. Cloudbreak validates the Ambari blueprint in this case.
 
-`Config recommendation strategy` Strategy for configuration recommendations how will be applied. Recommended 
+`Custom Image` If you enable this, you can override the default image for provision.
+
+`Config recommendation strategy` Strategy for how configuration recommendations will be applied. Recommended 
 configurations gathered by the response of the stack advisor. 
 
 * `NEVER_APPLY`               Configuration recommendations are ignored with this option.
 * `ONLY_STACK_DEFAULTS_APPLY` Applies only on the default configurations for all included services.
 * `ALWAYS_APPLY`              Applies on all configuration properties.
 
-`Seamless S3 Access` Cluster will be able to reach S3 buckets without any configuration.
+`Instance Profile` Cluster will be able to communicate with AWS api without any configuration.
 
-* `Disable S3 Access By Default`               Cluster will not be able to reach S3 buckets.
-* `Create Role For S3 Access`                  The Cloudformation template will create a new role and assign to every instance.
-* `Define Existing Role For S3 Access`         Cluster will use the predefined instance role. You should define the role ARN in the `Role for S3 connection` box.
+* `Disable Instance Profile attaching by default`               		Cluster will not be able to communicate with AWS api.
+* `Create Instance Profile and attach to the instances`                 The Cloudformation template will create a new role and assign to every instance.
+* `Define Existing Instance Profile and attach to the instances`        Cluster will use the predefined instance role. You should define the role ARN in the `Role for Instance Profile` box.
 
 `Hostgroup Configuration` During the hostgroup config we support different security groups per hostgroup.
 

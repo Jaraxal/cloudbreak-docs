@@ -27,7 +27,7 @@ public network> --subnet 10.0.0.0/16
 
 >- In case of existing subnet all three parameters must be provided, with new subnet only two are required.
 - Please make sure the defined subnet here doesn't overlap with any of your already deployed subnet in the
- network, because of the validation only happens after the cluster creation starts.
+ network, because the validation only happens after the cluster creation starts.
 - In case of existing subnet make sure you have enough room within your network space for the new instances. The 
 provided subnet CIDR will be ignored, but a proper CIDR range will be used.
 

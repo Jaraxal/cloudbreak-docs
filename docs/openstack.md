@@ -1,3 +1,7 @@
+# OpenStack Supported Versions
+
+{!docs/openstack/version.md!}
+
 # OpenStack Images
 
 {!docs/openstack/images.md!}

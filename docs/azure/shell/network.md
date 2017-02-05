@@ -18,7 +18,7 @@ network create --AZURE --name my-azure-network --addressPrefix 192.168.123.123 -
 ```
 
 >**IMPORTANT:** Make sure the defined subnet and theirs address prefixes here doesn't overlap with any of your 
-already deployed subnet and its already used address prefix in the network, because of the validation only happens 
+already deployed subnet and its already used address prefix in the network, because the validation only happens
 after the cluster creation 
 starts.
    

@@ -20,7 +20,6 @@ Here is a **basic flow for cluster creation on Cloudbreak Web UI**:
 `Setup Network and Security` tab
 
  - Select one of the networks
- - Select one of the security groups
  - Click on the `Choose Blueprint` button
 >If `Enable security` is checked as well, Cloudbreak will install Key Distribution Center (KDC) and the cluster will
 be Kerberized. See more about it in the [Kerberos](kerberos.md) section of this documentation.
@@ -30,6 +29,7 @@ be Kerberized. See more about it in the [Kerberos](kerberos.md) section of this 
  - Select one of the blueprint
  - After you've selected a `Blueprint`, you should be able to configure:
     - the templates
+    - the securitygroups
     - the number of nodes for all of the host groups in the blueprint
  - You need to select where you want to install the Ambari server to. Only 1 host group can be selected.
    If you want to install the Ambari server to a separate node, you need to extend your blueprint with a new host group
@@ -69,9 +69,11 @@ There are some advanced features when deploying a new cluster, these are the fol
 
 `Ambari Password` The password associated with the Ambari username. This password will be also the default password for all required passwords which are not specified in the blueprint. E.g: hive DB password.
 
-`Minimum cluster size` The provisioning strategy in case of the cloud provider cannot allocate all the requested nodes.
+`Minimum cluster size` The provisioning strategy in case the cloud provider cannot allocate all the requested nodes.
 
 `Validate blueprint` This is selected by default. Cloudbreak validates the Ambari blueprint in this case.
+
+`Custom Image` If you enable this, you can override the default image for provision.
 
 `Shipyard enabled cluster` This is selected by default. Cloudbreak will start a [Shipyard](https://shipyard-project.com/) container which helps you to manage your containers.
 
@@ -79,7 +81,7 @@ There are some advanced features when deploying a new cluster, these are the fol
 
 `Attached Storage Type` This is `single storage for all vm` by default. If are you using the default option then your whole cluster will by in one storage which could be a bottleneck in case of [Azure](https://azure.microsoft.com/hu-hu/documentation/articles/azure-subscription-service-limits/#storage-limits). If you are using the `separated storage for every vm` then we will deploy as much storage account as many node you have and in this case IOPS limit concern just for one node.
 
-`Config recommendation strategy` Strategy for configuration recommendations how will be applied. Recommended
+`Config recommendation strategy` Strategy for how configuration recommendations will be applied. Recommended
 configurations gathered by the response of the stack advisor.
 
 * `NEVER_APPLY`               Configuration recommendations are ignored with this option.

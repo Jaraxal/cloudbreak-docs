@@ -20,14 +20,14 @@ blueprint select --name multi-node-hdfs-yarn
 **Configure instance groups**
 
 You must configure instance groups before provisioning. An instance group define a group of nodes with a specified 
-template. Usually we create instance groups for host groups in the blueprint. For Ambari server only 1 host group can be specified.
+template and security group. Usually we create instance groups for host groups in the blueprint. For Ambari server only 1 host group can be specified.
 If you want to install the Ambari server to a separate node, you need to extend your blueprint with a new host group
 which contains only 1 service: HDFS_CLIENT and select this host group for the Ambari server. Note: this host group cannot be scaled so 
 it is not advised to select a 'slave' host group for this purpose.
 
 ```
-instancegroup configure --instanceGroup master --nodecount 1 --templateName minviable-aws --ambariServer true
-instancegroup configure --instanceGroup slave_1 --nodecount 1 --templateName minviable-aws --ambariServer false
+instancegroup configure --instanceGroup master --nodecount 1 --templateName minviable-aws --securityGroupName all-services-port --ambariServer true
+instancegroup configure --instanceGroup slave_1 --nodecount 1 --templateName minviable-aws --securityGroupName all-services-port --ambariServer false
 ```
 Other available option:
 
@@ -40,12 +40,6 @@ Select one of your previously created network which fits your needs or a default
 network select --name my-os-network
 ```
 
-**Select security group**
-
-Select one of your previously created security which fits your needs or a default one:
-```
-securitygroup select --name all-services-port
-```
 **Create stack / Create cloud infrastructure**
 
 Stack means the running cloud infrastructure that is created based on the instance groups configured earlier 
@@ -53,7 +47,7 @@ Stack means the running cloud infrastructure that is created based on the instan
 use your templates and by using OpenStack will launch your cloud stack. Use the following command to create a 
 stack to be used with your Hadoop cluster:
 ```
-stack create --name myosstack --region local
+stack create --OPENSTACK --name myosstack --region local
 ```
 The infrastructure is created asynchronously, the state of the stack can be checked with the stack `show command`. If 
 it reports AVAILABLE, it means that the virtual machines and the corresponding infrastructure is running at the cloud provider.

@@ -13,7 +13,7 @@ The host groups in the JSON will be mapped to a set of instances when starting t
 >**NOTE:** It is not necessary to define all the configuration in the blueprint. If a configuration is missing, Ambari will fill that with a default value.
 
 ```
-blueprint add --name my-blueprint --description "sample description" --file <the path of the blueprint>
+blueprint create --name my-blueprint --description "sample description" --file <the path of the blueprint>
 ```
 Other available options:
 

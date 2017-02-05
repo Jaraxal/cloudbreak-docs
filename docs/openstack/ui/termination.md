@@ -6,7 +6,7 @@ You can terminate running or stopped clusters with the `terminate` button in the
 OpenStack instances first. Instances are started in an Auto Scaling Group so they may be restarted if you terminate an 
 instance manually!
 
-Sometimes Cloudbreak cannot synchronize it's state with the cluster state at the cloud provider and the cluster can't
+Sometimes Cloudbreak cannot synchronize its state with the cluster state at the cloud provider and the cluster can't
  be terminated. In this case the `Forced termination` option can help to terminate the cluster at the Cloudbreak 
  side. **If it has happened:**
 

@@ -2,16 +2,16 @@
   "username": "sequenceiq",
   "name": "cbd",
   "tag": "sequenceiq/cbd",
-  "slug": "sequenceiq/cbd/googlecompute.image/17",
+  "slug": "sequenceiq/cbd/googlecompute.image/20",
   "artifact_type": "googlecompute.image",
-  "id": "cloudbreak-deployer-160-2016-10-05",
-  "version": 17,
+  "id": "cloudbreak-deployer-162-2017-01-17",
+  "version": 20,
   "metadata": {
-    "created": "2016-10-05 08:58:17 +0000",
+    "created": "2017-01-17 14:46:58 +0000",
     "os_user": "cloudbreak",
-    "created_at": "1475657897",
-    "image_name": "cloudbreak-deployer-160-2016-10-05",
-    "cbd_version": "1.6.0",
+    "created_at": "1484664418",
+    "image_name": "cloudbreak-deployer-162-2017-01-17",
+    "cbd_version": "1.6.2",
     "yum_version_docker": "1.9.1"
   },
   "file": false

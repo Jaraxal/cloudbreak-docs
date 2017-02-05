@@ -2,7 +2,7 @@ Setting up Cloudbreak on Azure is different than on other cloud providers for wh
 
 ## Deploy Using the Azure Portal
 
-To get started with Cloudbreak installation using the Azure Resource Manager template, click here: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsequenceiq%2Fazure-cbd-quickstart%2F1.6.0%2Fazuredeploy.json">  ![deploy on azure](http://azuredeploy.net/deploybutton.png) </a>
+To get started with Cloudbreak installation using the Azure Resource Manager template, click here: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsequenceiq%2Fazure-cbd-quickstart%2F1.6.2%2Fazuredeploy.json">  ![deploy on azure](http://azuredeploy.net/deploybutton.png) </a>
 
 ### VM Requirements
 
@@ -65,7 +65,7 @@ Cloudbreak Deployer (`cbd`)
   * All `cbd` actions must be executed from the `cbd` root folder.
   * Most of the `cbd` commands require `root` permissions. So it would be worth if you apply the `sudo su`.
 
-### Validate That Cloudbreak Deployer Has Started
+### Validate That Cloudbreak Deployer Has Started and Profile has public IP properly configured
 
 - SSH to the launched Azure VM.
 
@@ -78,6 +78,16 @@ Cloudbreak Deployer (`cbd`)
 - Open the `cloudbreak-deployment` directory:
 ```
   cd /var/lib/cloudbreak-deployment
+```
+
+- Check if the `Profile` has the public IP properly configured. It should contain a line like this:
+```
+  export PUBLIC_IP=<PUBLIC_IP_OF_VM>
+```
+> If you can't see the public IP of the VM in the Profile, add it manually and restart cbd with
+
+```
+  cbd restart
 ```
 
 - Pre-installed Cloudbreak Deployer version and health:

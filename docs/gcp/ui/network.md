@@ -25,7 +25,7 @@ You have the following options:
 * **Use a legacy network without subnets**: Use this kind of network setup if you have a legacy virtual network on Google Cloud that doesn't have subnet support and you'd like to start instances in that virtual network directly.
 
 >**IMPORTANT:** Please make sure the defined subnet here doesn't overlap with any of your already deployed subnet in the
- network, because of the validation only happens after the cluster creation starts.
+ network, because the validation only happens after the cluster creation starts.
 
 >In case of existing subnet make sure you have enough room within your network space for the new instances. The 
 provided subnet CIDR will be ignored, but a proper CIDR range will be used.

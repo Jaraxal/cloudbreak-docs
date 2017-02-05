@@ -11,13 +11,12 @@ credential select --name myazurecredential
 template create --AZURE --name azuretemplate --description azure-template --instanceType Standard_D3 --volumeSize 100 
 --volumeCount 2
 blueprint select --name hdp-small-default
-instancegroup configure --instanceGroup host_group_master_1 --nodecount 1 --templateName azuretemplate --ambariServer true
-instancegroup configure --instanceGroup host_group_master_2 --nodecount 1 --templateName azuretemplate --ambariServer false
-instancegroup configure --instanceGroup host_group_master_3 --nodecount 1 --templateName azuretemplate --ambariServer false
-instancegroup configure --instanceGroup host_group_client_1  --nodecount 1 --templateName azuretemplate --ambariServer false
-instancegroup configure --instanceGroup host_group_slave_1 --nodecount 3 --templateName azuretemplate --ambariServer false
+instancegroup configure --instanceGroup host_group_master_1 --nodecount 1 --templateName azuretemplate --securityGroupName all-services-port --ambariServer true
+instancegroup configure --instanceGroup host_group_master_2 --nodecount 1 --templateName azuretemplate --securityGroupName all-services-port --ambariServer false
+instancegroup configure --instanceGroup host_group_master_3 --nodecount 1 --templateName azuretemplate --securityGroupName all-services-port --ambariServer false
+instancegroup configure --instanceGroup host_group_client_1  --nodecount 1 --templateName azuretemplate --securityGroupName all-services-port --ambariServer false
+instancegroup configure --instanceGroup host_group_slave_1 --nodecount 3 --templateName azuretemplate --securityGroupName all-services-port --ambariServer false
 network select --name default-azure-network
-securitygroup select --name all-services-port
 stack create --AZURE --name my-first-stack --region "West US" --wait true
 cluster create --description "My first cluster" --wait true
 ```

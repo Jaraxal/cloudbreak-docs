@@ -1,4 +1,4 @@
-site_name: Cloudbreak 1.6.0
+site_name: Cloudbreak 1.6.2
 site_url: http://sequenceiq.com/cloudbreak-docs
 repo_url: https://github.com/sequenceiq/cloudbreak-docs
 theme: mkdocs
@@ -30,10 +30,10 @@ pages:
         - Ambari Database (TP): database.md
         - Platforms (TP): topologies.md
         - Kerberos (TP): kerberos.md
+        - LDAP/AD (TP): ldap.md
         - Mesos (TP): mesos.md
         - SPI: spi.md
         - Basic Operations : operations.md
         - Advanced Configuration : configuration.md
         - Development :
-            - Environments : environments.md
             - Flows : flow.html

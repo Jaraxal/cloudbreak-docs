@@ -49,6 +49,6 @@ infrastructure:
 - networks
 - security groups
 
-When you create one of the above resource, **Cloudbreak does not make any requests to AZURE. Resources are only created
+When you create one of the above resources, **Cloudbreak does not make any requests to AZURE. Resources are only created
  on AZURE after the `create cluster` button has pushed.** These templates are saved to Cloudbreak's database and can be 
  reused with multiple clusters to describe the infrastructure.

@@ -42,6 +42,27 @@ or else Cloudbreak won't be able to communicate with your OpenStack. To import t
 file in the generated certs directory `/certs/trusted/`. The trusted directory does not exist by default, so you need to create it.
 Cloudbreak will automatically pick up these certificates and import them into its truststore upon start.
 
+## Availability Zones and Region config
+By default Cloudbreak uses `RegionOne` region with `nova` availability zone, but OpenStack supports multiple regions and multiple availability zones. You can customize Cloudbreak deployment and enable multiple
+regions and availability zones by creating an `openstack-zone.json` under the `etc` directory of Cloudbreak deployment (e.g. `/var/lib/cloudbreak-deployment/etc/openstack-zone.json`).
+You can find an example of `openstack-zone.json` containing two regions and four availability zones below:
+```
+{
+  "items": [
+    {
+      "name": "MyRegionOne",
+      "zones": [ "az1", "az2", "az3"]
+    },
+    {
+      "name": "MyRegionTwo",
+      "zones": [ "myaz"]
+    }
+  ]
+}
+```
+
+If the `etc` directory does not exist under Cloudbreak deployment directory, then please create it. Restart is needed to pick up the changes done in `openstack-zone.json` file. 
+
 ## Start Cloudbreak Deployer
 
 To start the Cloudbreak application, use the following command:

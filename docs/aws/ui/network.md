@@ -33,7 +33,7 @@ will be launched into that subnet. **For example** you can create 3 different cl
 templates for multiple subnets `10.0.0.0/24`, `10.0.1.0/24`, `10.0.2.0/24` with the same VPC and IGW identifiers.
 
 >**IMPORTANT:** Make sure the define subnet here doesn't overlap with any of your already deployed subnet in
-the VPC, because of the validation only happens after the cluster creation starts.
+the VPC, because the validation only happens after the cluster creation starts.
 
 >In case of existing subnet make sure you have enough room within your network space for the new instances.
 
